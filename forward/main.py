@@ -1,19 +1,31 @@
+import sys
 import time
 import asyncio
 
 import config
 from notifications import check_NotificationListener, get_NotificationListener, handle_notif, NotificationKinds
 
-__version__ = "1.2.0"
+__version__ = "1.3.0"
 
 
 def validate_config():
-    supported_outputs = ['console', 'telegram', 'email']
-
+    supported_outputs = ['console']
     assert config.SLEEP_TIME > 0
     assert len(config.OUTPUTS) > 0
+    
+    if config.ENABLE_TELEGRAM:
+        supported_outputs.append('telegram')
+        assert config.TOKEN != ''
+        assert config.CHAT_ID != ''
+    
+    if config.ENABLE_EMAIL:
+        supported_outputs.append('email')
+        assert config.EMAIL != ''
+        assert config.PASSWORD != ''
+        assert config.RECIPIENT != ''
+    
     for output in config.OUTPUTS:
-        assert output in supported_outputs
+        assert output.lower() in supported_outputs
 
 
 async def main():
@@ -46,4 +58,4 @@ def run():
     asyncio.run(main())
 
 if __name__ == '__main__':
-    run()
+    validate_config()#run()

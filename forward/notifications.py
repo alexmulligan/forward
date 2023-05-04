@@ -7,6 +7,7 @@ from winrt.windows.ui.notifications import NotificationKinds, KnownNotificationB
 import config
 from notif import Notif
 
+
 def check_NotificationListener() -> bool:
     """Prechecks to make sure Windows NotificationListener API works"""
     if not ApiInformation.is_type_present('Windows.UI.Notifications.Management.UserNotificationListener'):
@@ -50,12 +51,11 @@ def handle_notif(windows_notif, notif_listener):
             for app in config.APP_WHITELIST:
                 if app in app_name.lower():
                     if config.DEBUG:
-                        print(f"DEBUG: found notif in whitelist - {app}")
+                        print(f"DEBUG: found notif in whitelist - {app_name}")
                     skip = False
-                else:
-                    if config.DEBUG:
-                        print(f"DEBUG: skipping notif - {app}")
             if skip:
+                if config.DEBUG:
+                        print(f"DEBUG: skipping notif - {app_name}")
                 return
 
         # call outputs for notification

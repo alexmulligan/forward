@@ -2,6 +2,8 @@ from typing import List
 import requests
 from urllib import parse
 
+import yagmail
+
 import config
 
 url = f'https://api.telegram.org/bot{config.TOKEN}/sendMessage?chat_id={config.CHAT_ID}&text='
@@ -25,6 +27,10 @@ class Notif:
         res = requests.get(url+message).json()
         if config.DEBUG:
             print(f"DEBUG: res: {res}\n")
+        if not res['ok']:
+            print(F"ERROR: Telegram response not ok. Could not send message")
 
     def output_email(self):
-        pass # TODO
+        yag = yagmail.SMTP(config.EMAIL, config.PASSWORD)
+        yag.send(config.RECIPIENT, f"{self.app_name} - {self.title}", self.body)
+        yag.close()
