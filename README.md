@@ -28,7 +28,7 @@ These are the credentials for the account used to send emails.
 Some email providers (like Gmail) don't support email & password log in from Third Party Apps anymore.  The way I solved this with Gmail is to [create an app password](https://urldefense.com/v3/__https://support.google.com/mail/answer/185833?hl=en__;!!MiXNeB2G!JfyhheHvhysiGUW_JXZMoCstAzP3-L8fg2e6aieke2V9YJqBbGrmqvTy6x5Y660kj8y3QxPkpObtq-NDxSkKcw$) and put that in the Password field.  
 Using an app password like this requires no change in implementation, so it works as is. Other solutions may require different implementations and are not supported at this time.
 
-Note: This has only been tested with Gmail at this time.
+Note: Only Gmail is supported at this time.
 
 ## Running the program
 
