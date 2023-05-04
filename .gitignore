@@ -1,3 +1,6 @@
+# ignore the actual config file which can contain API keys; config_example.py is tracked instead
+forward/config.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
