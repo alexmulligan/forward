@@ -24,7 +24,7 @@ class Notif:
 
     def output_telegram(self):
         message = parse.quote(f"{self.app_name} - {self.title}\n\n{self.body}")
-        res = requests.get(url+message).json()
+        res = requests.get(url+message, verify=False).json()
         if config.DEBUG:
             print(f"DEBUG: res: {res}\n")
         if not res['ok']:
