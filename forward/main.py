@@ -5,7 +5,7 @@ import asyncio
 import config
 from notifications import check_NotificationListener, get_NotificationListener, handle_notif, NotificationKinds
 
-__version__ = "1.3.0"
+__version__ = "1.3.1"
 
 
 def validate_config():
