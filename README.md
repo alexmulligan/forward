@@ -5,7 +5,7 @@ forward is a program to listen for Windows notifications and forward them to the
 
 ## Requirements
 
-- Python >=3.8 (Tested with 3.8.10) - see [this link](https://www.python.org/downloads/windows/) for installing Python
+- Python 3.8 or 3.9, winrt only supports up to 3.9 (Tested with 3.8.10) - see [this link](https://www.python.org/downloads/windows/) for installing Python
 - Poetry (Tested with 1.4.2, but may work with older versions) - see [this link](https://python-poetry.org/docs/) for installing Poetry
 - All dependency requirements managed by poetry
 
